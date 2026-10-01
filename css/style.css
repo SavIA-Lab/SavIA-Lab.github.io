@@ -20,7 +20,7 @@
     --font-display: "Manrope", sans-serif;
     --font-body: "DM Sans", sans-serif;
 
-    --container: 1180px;
+    --container: 1240px;
     --radius: 18px;
     --transition: 220ms ease;
 }
@@ -59,7 +59,7 @@ a {
 }
 
 .section {
-    padding: 120px 0;
+    padding: 104px 0;
 }
 
 .section-light {
@@ -86,17 +86,19 @@ a {
 
 .section-heading {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 64px;
     align-items: end;
-    margin-bottom: 60px;
+    margin-bottom: 48px;
 }
 
 .section-heading > p,
 .github-intro > p {
     color: var(--color-muted);
-    max-width: 470px;
+    max-width: 500px;
     justify-self: end;
+    font-size: 1.02rem;
+    line-height: 1.7;
 }
 
 .section-heading-light > p {
@@ -430,15 +432,15 @@ p {
 
 .savia-presentation {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 100px;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 76px;
     align-items: start;
 }
 
 .savia-identity {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 36px;
 }
 
 .savia-logo-display {
@@ -474,7 +476,7 @@ p {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-top: 44px;
+    margin-top: 32px;
 }
 
 .stat-strip > div {
@@ -725,8 +727,8 @@ p {
 
 .responsible-grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 100px;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 76px;
 }
 
 .large-copy {
@@ -769,14 +771,14 @@ p {
    ========================================================= */
 
 .github-section {
-    padding: 120px 0;
+    padding: 104px 0;
     background: #EAF3F1;
 }
 
 .github-intro {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 64px;
     align-items: end;
 }
 
@@ -960,8 +962,8 @@ p {
 .unbosque-logo {
     display: block;
     width: auto;
-    height: 88px;
-    max-width: 122px;
+    height: 104px;
+    max-width: 150px;
     object-fit: contain;
 }
 
@@ -1220,5 +1222,175 @@ p {
 
     .footer-bottom {
         flex-direction: column;
+    }
+}
+
+/* =========================================================
+   REFINAMIENTO V2 — LEGIBILIDAD Y PROPORCIONES
+   ========================================================= */
+
+:root {
+    --container: 1240px;
+}
+
+body {
+    line-height: 1.7;
+}
+
+.container {
+    width: min(calc(100% - 48px), var(--container));
+}
+
+.section {
+    padding: 108px 0;
+}
+
+.section-heading {
+    gap: 64px;
+    margin-bottom: 52px;
+}
+
+.section-heading > p,
+.github-intro > p {
+    max-width: 500px;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.section-kicker,
+.eyebrow {
+    font-size: 0.76rem;
+}
+
+.hero-content {
+    gap: 80px;
+    padding: 96px 0 120px;
+}
+
+.hero-description {
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+.savia-presentation,
+.responsible-grid {
+    column-gap: 84px;
+}
+
+.section-text > p {
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.stat-strip span,
+.metric span {
+    font-size: 0.76rem;
+}
+
+.research-grid,
+.github-content {
+    gap: 20px;
+}
+
+.research-card {
+    min-height: 285px;
+    padding: 32px;
+}
+
+.card-icon {
+    margin-bottom: 30px;
+}
+
+.research-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.tags span {
+    font-size: 0.68rem;
+}
+
+.project-item {
+    padding: 27px 0;
+}
+
+.project-content p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+.publication-layout {
+    gap: 64px;
+}
+
+.publication-feature {
+    padding: 38px;
+}
+
+.publication-feature p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+.publication-list h3 {
+    font-size: 1.08rem;
+    line-height: 1.35;
+}
+
+.responsible-grid {
+    gap: 84px;
+}
+
+.large-copy {
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.principle p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+.github-section {
+    padding: 108px 0;
+}
+
+.github-intro {
+    gap: 64px;
+}
+
+.github-card > p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+}
+
+.contact-section {
+    padding: 92px 0;
+}
+
+@media (max-width: 680px) {
+    .container {
+        width: min(calc(100% - 32px), var(--container));
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-heading > p,
+    .github-intro > p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .section-text > p,
+    .large-copy {
+        font-size: 1rem;
+    }
+
+    .research-card p,
+    .project-content p,
+    .github-card > p {
+        font-size: 0.9rem;
     }
 }
