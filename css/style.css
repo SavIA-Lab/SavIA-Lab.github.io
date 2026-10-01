@@ -194,8 +194,16 @@ p {
 .brand {
     display: inline-flex;
     align-items: center;
-    gap: 11px;
     margin-right: auto;
+    line-height: 0;
+}
+
+.brand-logo {
+    display: block;
+    width: auto;
+    height: 54px;
+    max-width: 150px;
+    object-fit: contain;
 }
 
 .brand-mark {
@@ -1011,6 +1019,11 @@ p {
 }
 
 @media (max-width: 680px) {
+    .brand-logo {
+        height: 48px;
+        max-width: 132px;
+    }
+
     .container {
         width: min(calc(100% - 32px), var(--container));
     }
