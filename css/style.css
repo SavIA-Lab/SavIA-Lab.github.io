@@ -201,8 +201,9 @@ p {
 .brand-logo {
     display: block;
     width: auto;
-    height: 54px;
-    max-width: 150px;
+    height: 48px;
+    width: auto;
+    max-width: 145px;
     object-fit: contain;
 }
 
@@ -427,11 +428,36 @@ p {
    SAVIA-LAB
    ========================================================= */
 
-.two-column {
+.savia-presentation {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
     gap: 100px;
     align-items: start;
+}
+
+.savia-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.savia-logo-display {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px;
+    border: 1px solid var(--color-border);
+    border-radius: 28px;
+    background: linear-gradient(145deg, #F8FCFB, #EEF7F5);
+}
+
+.savia-logo-display img {
+    display: block;
+    width: min(100%, 300px);
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
 }
 
 .section-text {
@@ -876,6 +902,70 @@ p {
 }
 
 /* =========================================================
+   IDENTIDAD INSTITUCIONAL
+   ========================================================= */
+
+.institutional-affiliation {
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.institutional-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.institutional-kicker {
+    color: var(--color-secondary);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.institutional-copy strong {
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.15;
+}
+
+.institutional-copy > span:last-child {
+    color: var(--color-muted);
+    font-size: 0.7rem;
+}
+
+.institutional-affiliation a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: #ffffff;
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.institutional-affiliation a:hover {
+    border-color: rgba(12, 142, 138, 0.35);
+    transform: translateY(-2px);
+}
+
+.unbosque-logo {
+    display: block;
+    width: auto;
+    height: 88px;
+    max-width: 122px;
+    object-fit: contain;
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 
@@ -978,7 +1068,7 @@ p {
     }
 
     .hero-content,
-    .two-column,
+    .savia-presentation,
     .responsible-grid,
     .contact-layout {
         grid-template-columns: 1fr;
@@ -1019,6 +1109,29 @@ p {
 }
 
 @media (max-width: 680px) {
+    .savia-identity {
+        gap: 34px;
+    }
+
+    .savia-logo-display {
+        min-height: 190px;
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .savia-logo-display img {
+        width: min(100%, 240px);
+    }
+
+    .institutional-affiliation {
+        align-items: flex-start;
+    }
+
+    .unbosque-logo {
+        height: 70px;
+        max-width: 96px;
+    }
+
     .brand-logo {
         height: 48px;
         max-width: 132px;
