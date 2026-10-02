@@ -81,6 +81,64 @@ function setupYear() {
     }
 }
 
+
+/* =========================================================
+   CARRUSEL DEL HERO
+   ========================================================= */
+
+function setupHeroCarousel() {
+    const carousel = document.querySelector("[data-carousel]");
+
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll(".hero-slide"));
+    const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
+
+    if (slides.length < 2) return;
+
+    let currentIndex = 0;
+    let intervalId = null;
+
+    function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle("is-active", slideIndex === currentIndex);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+            const active = dotIndex === currentIndex;
+            dot.classList.toggle("is-active", active);
+            dot.setAttribute("aria-current", String(active));
+        });
+    }
+
+    function startAutoplay() {
+        window.clearInterval(intervalId);
+        intervalId = window.setInterval(() => {
+            showSlide(currentIndex + 1);
+        }, 10000);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            showSlide(index);
+            startAutoplay();
+        });
+    });
+
+    carousel.addEventListener("mouseenter", () => window.clearInterval(intervalId));
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", () => window.clearInterval(intervalId));
+    carousel.addEventListener("focusout", (event) => {
+        if (!carousel.contains(event.relatedTarget)) {
+            startAutoplay();
+        }
+    });
+
+    startAutoplay();
+}
+
 /* =========================================================
    MÉTRICAS GITHUB
    ========================================================= */
@@ -230,5 +288,6 @@ function escapeHTML(value) {
 document.addEventListener("DOMContentLoaded", () => {
     setupMenu();
     setupYear();
+    setupHeroCarousel();
     loadGitHubMetrics();
 });

@@ -371,39 +371,83 @@ p {
     justify-content: flex-end;
 }
 
-.image-placeholder {
-    border: 1px dashed rgba(255, 255, 255, 0.3);
-    background:
-        radial-gradient(circle at 35% 35%, rgba(116, 199, 189, 0.2), transparent 25%),
-        rgba(255, 255, 255, 0.035);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.58);
-}
-
-.image-placeholder-hero {
+.hero-carousel {
+    position: relative;
     width: min(100%, 460px);
     aspect-ratio: 4 / 5;
+    overflow: hidden;
     border-radius: 34% 14% 34% 14%;
     transform: rotate(2deg);
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
 }
 
-.placeholder-icon {
+.hero-carousel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(3, 35, 35, 0.04), rgba(3, 35, 35, 0.2));
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: scale(1.025);
+    transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
     display: block;
-    color: var(--color-accent);
-    font-family: var(--font-display);
-    font-size: 2rem;
-    margin-bottom: 10px;
+    object-fit: cover;
+    object-position: center;
 }
 
-.image-placeholder small {
-    max-width: 220px;
-    margin-top: 6px;
-    color: rgba(255, 255, 255, 0.38);
-    font-size: 0.7rem;
+.hero-carousel-dots {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%) rotate(-2deg);
+    display: flex;
+    gap: 8px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(3, 35, 35, 0.46);
+    backdrop-filter: blur(8px);
+}
+
+.carousel-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.42);
+    cursor: pointer;
+    transition: width 0.25s ease, background 0.25s ease;
+}
+
+.carousel-dot.is-active {
+    width: 20px;
+    border-radius: 999px;
+    background: var(--color-accent);
+}
+
+.carousel-dot:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
 }
 
 .hero-bottom {
@@ -1164,7 +1208,7 @@ p {
         width: 100%;
     }
 
-    .image-placeholder-hero {
+    .hero-carousel {
         width: 100%;
     }
 
